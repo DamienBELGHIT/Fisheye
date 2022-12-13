@@ -1,12 +1,4 @@
-//get the json data of the photographers
-async function getPhotographers() {
-  const json = fetch("../../data/photographers.json")
-  .then(res => res.json())
-  .then((data)=> {return data;})
-  return json;
-}
-
-//create div displaying the photographers data
+//crée une div affichant les données des photographes sur la page d'accueil
 async function displayData(photographers) {
   const photographersSection = document.querySelector('.photographer_section');
 
@@ -24,4 +16,3 @@ async function init() {
 };
 
 init();
-
