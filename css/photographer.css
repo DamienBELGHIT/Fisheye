@@ -8,6 +8,51 @@
     margin: 0 100px;
 }
 
+.photographer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.photographer h2{
+    font-size: 64px;
+}
+
+.medias_section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.medias_section img, video{
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.medias_section article section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #901C1C;
+}
+
+.medias_section article{
+    margin: 5px;
+}
+
+.medias_section article section h2{
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.medias_section article section span{
+    font-weight: bold;
+    font-size: 24px;
+}
+
 .contact_button {
     font-size: 20px;
     font-weight: bold;
@@ -19,6 +64,22 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.encart_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 376px;
+    height: 89px;
+    background: #DB8876;
+    border-radius: 5px;
+    position: fixed;
+    bottom: -10px;
+    right: 36px;
+    font-size: 24px;
+    padding: 0 34px;
+    font-weight: bold;
 }
 
 .modal {

@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/photographer.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
+    <script src="https://kit.fontawesome.com/dfece5ff19.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/>
     </header>
     <main id="main">
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
+      <div class="medias_section"></div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
@@ -31,6 +34,8 @@
 				</form>
 			</div>
 		</div>
+    <script src="scripts/factories/media.js"></script>
+    <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/retrieveData.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
