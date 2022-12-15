@@ -3,9 +3,12 @@
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
-    margin-bottom: 100px;
 }
 
+.no-scroll {
+    height: 100%;
+    overflow: hidden;
+  }
 
 header {
     display: flex;

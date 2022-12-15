@@ -11,7 +11,7 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/>
+      <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/></a>
     </header>
     <main id="main">
       <div class="photograph-header">
@@ -19,21 +19,34 @@
       </div>
       <div class="medias_section"></div>
     </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
+      <div id="contact_modal">
+        <div class="gray-bg"></div>
+        <div class="modal" role="dialog" aria-describedby="modal-title">
+          <header>
+            <h2 class="modal-title">Contactez-moi</h2>
+            <img class="modal-close-btn" src="assets/icons/close.svg" onclick="closeModal()" />
+          </header>
+          <form>
+            <div class="formData">
+              <label for="first">Prénom</label>
+              <input type="text" id="first" name="first"/>
+            </div>
+            <div class="formData">
+              <label for="last">Nom</label>
+              <input type="text" id="last" name="last"/>
+            </div>
+            <div class="formData" data-error="Email invalide !">
+              <label for="email">*E-mail</label>
+              <input type="email" id="email" name="email" required/>
+            </div>
+            <div class="formData" data-error="Ce champ est requis !">
+              <label for="message">*Votre message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button class="contact_button">Envoyer</button>
+          </form>
+        </div>
+      </div>
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/retrieveData.js"></script>
