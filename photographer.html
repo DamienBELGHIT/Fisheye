@@ -15,16 +15,29 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button">Contactez-moi</button>
       </div>
       <div class="medias_section"></div>
     </main>
-      <div id="contact_modal">
+      <div id="lightbox_modal" aria-hidden="true">
+        <div class="gray-bg"></div>
+        <div class="modal" role="dialog" aria-describedby="modal-title">
+          <header>
+            <img class="modal-close-btn" src="assets/icons/close.svg" role="button" aria-label="Fermer la modale"/>
+          </header>
+          <div class="content">
+            <div aria-label="Media précédent" class="arrow-btn" id="previousContent-btn"><i class="fa-solid fa-angle-left"></i></div>
+            <div class="zoomed-content"></div>
+            <div aria-label="Media suivant" class="arrow-btn" id="nextContent-btn"><i class="fa-solid fa-angle-right"></i></div>
+          </div>
+        </div>
+      </div>
+      <div id="contact_modal" aria-hidden="true">
         <div class="gray-bg"></div>
         <div class="modal" role="dialog" aria-describedby="modal-title">
           <header>
             <h2 class="modal-title">Contactez-moi</h2>
-            <img class="modal-close-btn" src="assets/icons/close.svg" onclick="closeModal()" />
+            <img class="modal-close-btn" src="assets/icons/close.svg" role="button" aria-label="Fermer la modale"/>
           </header>
           <form>
             <div class="formData">
@@ -43,7 +56,7 @@
               <label for="message">*Votre message</label>
               <textarea id="message" name="message" required></textarea>
             </div>
-            <button class="contact_button">Envoyer</button>
+            <button class="contact_button" aria-label="Envoyer le message">Envoyer</button>
           </form>
         </div>
       </div>
@@ -51,6 +64,8 @@
     <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/retrieveData.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
+    <script src="scripts/utils/modal.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/lightboxModal.js"></script>
   </body>
 </html>

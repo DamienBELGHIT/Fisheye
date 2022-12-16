@@ -1,33 +1,15 @@
 //Récupère les éléments du DOM
 const submitForm = document.querySelector(".modal .contact_button")
-const modal = document.getElementById("contact_modal");
-const main = document.querySelector("main");
+const contactModal = document.getElementById("contact_modal");
 const formData = document.querySelectorAll(".formData");
+const btn_openContactModal = document.querySelector(".contact_button");
+const btn_closeContactModal = contactModal.querySelector(".modal header .modal-close-btn");
 
-// Ouvre la modale
-function displayModal() {
-    main.setAttribute('aria-hidden', 'true');
-    modal.setAttribute('aria-hidden', 'false');
-    const btn_close = modal.querySelector(".modal-close-btn");
-    btn_close.focus();
-	modal.style.display = "block";
-    document.querySelector('body').classList.add('no-scroll');
-}
+//Events d'ouverture de la modale
+btn_openContactModal.addEventListener("click", ()=>displayModal(contactModal));
 
-// Ferme la modale
-function closeModal() {
-    main.setAttribute('aria-hidden', 'false');
-    modal.setAttribute('aria-hidden', 'true');
-    modal.style.display = "none";
-    document.querySelector('body').classList.remove('no-scroll');
-}
-
-// Ferme la modale quand la touche "Echap" est pressée
-document.addEventListener("keydown",e => {
-    if (modal.getAttribute('aria-hidden') == 'false' && e.key === "Escape") {
-        closeModal();
-    }
- })
+//Events de fermeture de la modale
+btn_closeContactModal.addEventListener("click", ()=>closeModal(contactModal));
 
 //Envoie les infos du formulaire si tous les champs sont valides
 submitForm.addEventListener("click", (event)=>{

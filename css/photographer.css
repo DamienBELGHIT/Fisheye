@@ -2,7 +2,7 @@ body{
     margin-bottom: 100px;
 }
 
-#contact_modal {
+#contact_modal, #lightbox_modal {
     display: none;
 }
 
@@ -33,30 +33,31 @@ body{
     margin: 0 10px;
 }
 
-.medias_section img, video{
+.medias_section img, .medias_section video{
     width: 350px;
     height: 300px;
     object-fit: cover;
     border-radius: 5px;
 }
 
-.medias_section article section{
+.media section{
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: #901C1C;
 }
 
-.medias_section article{
+.media{
     margin: 5px;
+    cursor: pointer;
 }
 
-.medias_section article section h2{
+.media section h2{
     font-weight: 400;
     font-size: 20px;
 }
 
-.medias_section article section span{
+.media section span{
     font-weight: bold;
     font-size: 24px;
 }
@@ -166,4 +167,30 @@ form label {
     width: 100%;
     height: 100%;
     top: 0;
+}
+
+.zoomed-content img,.zoomed-content video{
+    width: 700px;
+    height: 700px;
+    object-fit: cover;
+}
+
+#lightbox_modal .modal{
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+}
+
+#lightbox_modal .modal header{
+    justify-content: flex-end;
+}
+
+#lightbox_modal .modal .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow-btn{
+    cursor: pointer;
+    font-size: 66px;
 }

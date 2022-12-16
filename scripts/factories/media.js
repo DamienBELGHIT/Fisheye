@@ -7,13 +7,8 @@ function mediaFactory(data, photographe) {
     function getMediaDOM() {
       const article = document.createElement('article');
       article.setAttribute("aria-label", title);
-  
-      //lien vers la lightbox
-      /*
-      const link= document.createElement('a');
-      link.setAttribute("href", "./photographer.html?id="+id);
-      link.setAttribute("alt", name);
-      */
+      article.classList.add("media");        
+      article.addEventListener("click", ()=>openLightbox(article));
       
       //contenu
       let div_content ="";
@@ -28,6 +23,7 @@ function mediaFactory(data, photographe) {
             div_content.setAttribute("type", "video/"+content.split('.').pop());
             div_content.setAttribute("alt", title);
         }
+        div_content.classList.add("content");
   
       //titre
       const div_title = document.createElement('h2');
