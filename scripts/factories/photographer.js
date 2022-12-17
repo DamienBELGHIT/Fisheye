@@ -1,6 +1,6 @@
 //Factory function qui génere les éléments du DOM pour un profil de photographe
 function photographerFactory(data) {
-  const { id, name, portrait, city, country, tagline, price } = data;
+  const { id, likesTotal, name, portrait, city, country, tagline, price } = data;
 
   const picture = `assets/photographers/${portrait}`;
 
@@ -64,7 +64,8 @@ function photographerFactory(data) {
   function getUserEncartDOM() { 
     //total likes
     const div_likes = document.createElement('span');
-    div_likes.textContent = "100";
+    div_likes.classList.add("likes-tot");
+    div_likes.textContent = likesTotal;
     const heart_icon = document.createElement('i');
     heart_icon.classList.add("fa-solid", "fa-heart");
     div_likes.appendChild(heart_icon);

@@ -8,7 +8,6 @@ function mediaFactory(data, photographe) {
       const article = document.createElement('article');
       article.setAttribute("aria-label", title);
       article.classList.add("media");        
-      article.addEventListener("click", ()=>openLightbox(article));
       
       //contenu
       let div_content ="";
@@ -24,6 +23,7 @@ function mediaFactory(data, photographe) {
             div_content.setAttribute("alt", title);
         }
         div_content.classList.add("content");
+        div_content.addEventListener("click", ()=>openLightbox(article));
   
       //titre
       const div_title = document.createElement('h2');
@@ -33,7 +33,24 @@ function mediaFactory(data, photographe) {
       const div_like = document.createElement('span');
       const heart_icon = document.createElement('i');
       heart_icon.classList.add("fa-solid", "fa-heart");
+      div_like.classList.add("btn-like");
+      div_like.setAttribute("aria-label", "Mettre un like au media");
       div_like.textContent = likes;
+      //Event de like du media
+      div_like.addEventListener("click", ()=>{
+        const liked = div_like.toggleAttribute("liked");
+        let likes = div_like.textContent;
+        if(liked){
+          likes++;
+          div_like.setAttribute("aria-label", "Retirer le like du media");
+          addLikeTotal(1);
+        }else{
+          likes--;
+          div_like.setAttribute("aria-label", "Mettre un like au media");
+          addLikeTotal(-1);
+        }
+        div_like.childNodes[0].textContent = likes;
+      });
       div_like.appendChild(heart_icon);
   
       //assemblage

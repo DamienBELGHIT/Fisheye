@@ -1,7 +1,11 @@
-//Retourne les données d'un photographe depuis son id, retourne null si non existant
+//Retourne les données d'un photographe et son nombre total de likes depuis son id, retourne null si non existant
 async function getPhotographerById(id){
   data = await getPhotographers();
-  return data.photographers.find(e => e.id == id);
+  let likesTot = 0;
+  data.media.filter(e=>e.photographerId == id).forEach((media)=>likesTot += media.likes);
+  let photograph = data.photographers.find(e => e.id == id);
+  photograph.likesTotal = likesTot;
+  return photograph;
 }
 
 //Retourne un tableau comportant les oeuvres d'un photographe depuis son id
@@ -9,6 +13,12 @@ async function getGalleryById(id){
   data = await getPhotographers();
   const gallery = data.media.filter(e=>e.photographerId == id);
   return gallery;
+}
+
+//Ajoute des likes au total de likes du photographe
+function addLikeTotal(val){
+  const div_likes_tot = document.querySelector(".likes-tot");
+  div_likes_tot.childNodes[0].textContent = parseInt(div_likes_tot.textContent)  + val;
 }
 
 //Affiche les éléments de la page liés au photographe
