@@ -1,3 +1,6 @@
+let mediaList; 
+let photographName;
+
 //Retourne les données d'un photographe et son nombre total de likes depuis son id, retourne null si non existant
 async function getPhotographerById(id){
   data = await getPhotographers();
@@ -21,8 +24,8 @@ function addLikeTotal(val){
   div_likes_tot.childNodes[0].textContent = parseInt(div_likes_tot.textContent)  + val;
 }
 
-//Affiche les éléments de la page liés au photographe
-function displayData(medias, photograph){
+//Affiche les données du photographe
+function displayPhotographer(photograph){
   //crée les éléments du DOM affichant les données du photographe dans le header
   const photographSection = document.querySelector('.photograph-header');
   const photographModel = photographerFactory(photograph);
@@ -37,13 +40,16 @@ function displayData(medias, photograph){
   //crée l'encart du tarif et du total de likes du photographe
   const main = document.querySelector('main');
   const encartDOM = photographModel.getUserEncartDOM();
-  main.appendChild(encartDOM);
+  main.appendChild(encartDOM);  
+}
 
-  //crée les éléments du DOM affichant les données des medias du photographe
+//Affiche la liste de medias du photographe
+function displayMedias(medias){
   const mediasSection = document.querySelector('.medias_section');
+  mediasSection.textContent = "";
 
   medias.forEach((media) => {
-    const mediaModel = mediaFactory(media, photograph.name);
+    const mediaModel = mediaFactory(media, photographName);
     const mediaDOM = mediaModel.getMediaDOM();
     mediasSection.appendChild(mediaDOM);
   });
@@ -54,7 +60,13 @@ async function init() {
     const params = (new URL(document.location)).searchParams;
     const id = params.get('id'); 
     photograph = await getPhotographerById(id);
-    displayData(await getGalleryById(id), photograph);
+    displayPhotographer(photograph);
+
+    mediaList = await getGalleryById(id);
+    photographName = photograph.name;
+
+    //crée les éléments du DOM affichant les données des medias du photographe
+    displayMedias(sortMedias(mediaList, "popularity"));
   };
 
 init();

@@ -26,6 +26,21 @@ body{
     font-size: 24px;
 }
 
+.dropdown-sort{
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.dropdown-sort select{
+    background-color: #901C1C;
+    color: white;
+    padding: 10px;
+    border: 0;
+    border-radius: 2px;
+    font-size: 18px;
+}
+
 .medias_section {
     display: flex;
     flex-wrap: wrap;

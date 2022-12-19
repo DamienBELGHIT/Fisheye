@@ -21,6 +21,11 @@ function setLightboxContent(media){
     const content = media.querySelector(".content");
     lightboxContent.firstChild && lightboxContent.removeChild(lightboxContent.firstChild);
     lightboxContent.appendChild(content.cloneNode());
+
+    //Active les contrôle si le média est de type vidéo
+    lightboxContent.firstChild.nodeName === "VIDEO" && lightboxContent.firstChild.setAttribute("controls", true);
+
+    //Affiche les flèches seulement si elles mènent vers un média
     btn_previous.style.display= media.previousSibling ? "block" : "none";
     btn_next.style.display= media.nextSibling ? "block" : "none";
 }

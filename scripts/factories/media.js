@@ -1,8 +1,8 @@
 //Factory function qui génere les éléments du DOM pour un media sur la page de profil d'un photographe
-function mediaFactory(data, photographe) {
+function mediaFactory(data) {
     const { title, image, video, likes} = data;
   
-    const content = image ? `assets/photos/${photographe.split(' ').join('_')}/${image}` : `assets/photos/${photographe.split(' ').join('_')}/${video}`;
+    const content = image ? `assets/photos/${photographName.split(' ').join('_')}/${image}` : `assets/photos/${photographName.split(' ').join('_')}/${video}`;
   
     function getMediaDOM() {
       const article = document.createElement('article');
@@ -18,9 +18,10 @@ function mediaFactory(data, photographe) {
         }
         else if(video){
             div_content = document.createElement('video');
-            div_content.setAttribute("src", content); 
+            div_content.setAttribute("src", content+"#t=0.5"); 
             div_content.setAttribute("type", "video/"+content.split('.').pop());
             div_content.setAttribute("alt", title);
+            div_content.setAttribute("preload", "metadata");
         }
         div_content.classList.add("content");
         div_content.addEventListener("click", ()=>openLightbox(article));
@@ -34,7 +35,7 @@ function mediaFactory(data, photographe) {
       const heart_icon = document.createElement('i');
       heart_icon.classList.add("fa-solid", "fa-heart");
       div_like.classList.add("btn-like");
-      div_like.setAttribute("aria-label", "Mettre un like au media");
+      div_like.setAttribute("aria-label", "Ajouter un like au media");
       div_like.textContent = likes;
       //Event de like du media
       div_like.addEventListener("click", ()=>{
@@ -46,7 +47,7 @@ function mediaFactory(data, photographe) {
           addLikeTotal(1);
         }else{
           likes--;
-          div_like.setAttribute("aria-label", "Mettre un like au media");
+          div_like.setAttribute("aria-label", "Ajouter un like au media");
           addLikeTotal(-1);
         }
         div_like.childNodes[0].textContent = likes;
