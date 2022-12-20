@@ -46,6 +46,8 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 10px;
+    list-style-type: none;
+    padding: 0;
 }
 
 .medias_section img, .medias_section video{

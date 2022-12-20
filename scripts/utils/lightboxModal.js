@@ -1,3 +1,5 @@
+import {closeModal, displayModal} from "./modal.js";
+
 //Récupère les éléments du DOM
 const lightBoxModal = document.getElementById("lightbox_modal");
 const btn_closeLightBoxModal = lightBoxModal.querySelector(".modal header .modal-close-btn");
@@ -10,7 +12,7 @@ let currentMedia;
 btn_closeLightBoxModal.addEventListener("click", ()=>closeModal(lightBoxModal));
 
 //Ouverture de la modale
-function openLightbox(media){
+export function openLightbox(media){
     setLightboxContent(media);
     displayModal(lightBoxModal);
 }
@@ -42,7 +44,7 @@ document.addEventListener("keydown",e => {
  })
 
 //Events passant au media précédent
-previousMedia = (media)=>media.previousSibling && setLightboxContent(media.previousSibling);
+const previousMedia = (media)=>media.previousSibling && setLightboxContent(media.previousSibling);
 
 btn_previous.addEventListener("click", ()=>previousMedia(currentMedia));
 

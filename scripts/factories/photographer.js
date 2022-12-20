@@ -1,5 +1,5 @@
 //Factory function qui génere les éléments du DOM pour un profil de photographe
-function photographerFactory(data) {
+export function photographerFactory(data) {
   const { id, likesTotal, name, portrait, city, country, tagline, price } = data;
 
   const picture = `assets/photographers/${portrait}`;

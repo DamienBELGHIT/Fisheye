@@ -2,7 +2,7 @@
 const main = document.querySelector("main");
 
 // Ouvre la modale
-function displayModal(modal) {
+export function displayModal(modal) {
     main.setAttribute('aria-hidden', 'true');
     modal.setAttribute('aria-hidden', 'false');
     const btn_close = modal.querySelector(".modal-close-btn");
@@ -19,7 +19,7 @@ function displayModal(modal) {
 }
 
 // Ferme la modale
-function closeModal(modal) {
+export function closeModal(modal) {
     main.setAttribute('aria-hidden', 'false');
     modal.setAttribute('aria-hidden', 'true');
     modal.style.display = "none";

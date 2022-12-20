@@ -1,9 +1,14 @@
-let mediaList; 
-let photographName;
+import { getPhotographers } from "../utils/retrieveData.js";
+import {photographerFactory} from "../factories/photographer.js";
+import {mediaFactory} from "../factories/media.js";
+import {sortMedias} from "../utils/sort.js";
+
+export let mediaList; 
+export let photographName;
 
 //Retourne les données d'un photographe et son nombre total de likes depuis son id, retourne null si non existant
 async function getPhotographerById(id){
-  data = await getPhotographers();
+  const data = await getPhotographers();
   let likesTot = 0;
   data.media.filter(e=>e.photographerId == id).forEach((media)=>likesTot += media.likes);
   let photograph = data.photographers.find(e => e.id == id);
@@ -13,13 +18,13 @@ async function getPhotographerById(id){
 
 //Retourne un tableau comportant les oeuvres d'un photographe depuis son id
 async function getGalleryById(id){
-  data = await getPhotographers();
+  const data = await getPhotographers();
   const gallery = data.media.filter(e=>e.photographerId == id);
   return gallery;
 }
 
 //Ajoute des likes au total de likes du photographe
-function addLikeTotal(val){
+export function addLikeTotal(val){
   const div_likes_tot = document.querySelector(".likes-tot");
   div_likes_tot.childNodes[0].textContent = parseInt(div_likes_tot.textContent)  + val;
 }
@@ -44,7 +49,7 @@ function displayPhotographer(photograph){
 }
 
 //Affiche la liste de medias du photographe
-function displayMedias(medias){
+export function displayMedias(medias){
   const mediasSection = document.querySelector('.medias_section');
   mediasSection.textContent = "";
 
@@ -55,11 +60,15 @@ function displayMedias(medias){
   });
 }
 
+//Event de tri des Medias
+const dropdown = document.querySelector(".dropdown-sort");
+dropdown.addEventListener('change', (event) => {displayMedias(sortMedias(mediaList,event.target.value))});
+
 async function init() {
     // Récupère les datas du photographe
     const params = (new URL(document.location)).searchParams;
     const id = params.get('id'); 
-    photograph = await getPhotographerById(id);
+    const photograph = await getPhotographerById(id);
     displayPhotographer(photograph);
 
     mediaList = await getGalleryById(id);
@@ -67,6 +76,6 @@ async function init() {
 
     //crée les éléments du DOM affichant les données des medias du photographe
     displayMedias(sortMedias(mediaList, "popularity"));
-  };
+  }
 
 init();

@@ -1,5 +1,6 @@
+import {closeModal, displayModal} from "./modal.js";
 //Récupère les éléments du DOM
-const submitForm = document.querySelector(".modal .contact_button")
+const submitForm = document.querySelector(".modal .contact_button");
 const contactModal = document.getElementById("contact_modal");
 const formData = document.querySelectorAll(".formData");
 const btn_openContactModal = document.querySelector(".contact_button");
@@ -29,7 +30,7 @@ submitForm.addEventListener("click", (event)=>{
 
 //Vérifie si un input est valide et l'affiche en erreur si ça n'est pas le cas
 function checkInput(input){
-    div = input.parentElement;
+    const div = input.parentElement;
     if(input.validity.valid){
       div.setAttribute("data-error-visible", false);
       return true;

@@ -1,13 +1,16 @@
+import { addLikeTotal, photographName } from "../pages/photographer.js";
+import { openLightbox } from "../utils/lightboxModal.js";
+
 //Factory function qui génere les éléments du DOM pour un media sur la page de profil d'un photographe
-function mediaFactory(data) {
+export function mediaFactory(data) {
     const { title, image, video, likes} = data;
   
     const content = image ? `assets/photos/${photographName.split(' ').join('_')}/${image}` : `assets/photos/${photographName.split(' ').join('_')}/${video}`;
   
     function getMediaDOM() {
-      const article = document.createElement('article');
-      article.setAttribute("aria-label", title);
-      article.classList.add("media");        
+      const container = document.createElement('li');
+      container.setAttribute("aria-label", title);
+      container.classList.add("media");        
       
       //contenu
       let div_content ="";
@@ -24,7 +27,7 @@ function mediaFactory(data) {
             div_content.setAttribute("preload", "metadata");
         }
         div_content.classList.add("content");
-        div_content.addEventListener("click", ()=>openLightbox(article));
+        div_content.addEventListener("click", ()=>openLightbox(container));
   
       //titre
       const div_title = document.createElement('h2');
@@ -56,11 +59,11 @@ function mediaFactory(data) {
   
       //assemblage
       const section = document.createElement('section');
-      article.appendChild(div_content);
+      container.appendChild(div_content);
       section.appendChild(div_title);
       section.appendChild(div_like);
-      article.appendChild(section);
-      return (article);
+      container.appendChild(section);
+      return (container);
     }
     return { title, content, getMediaDOM }
   }
