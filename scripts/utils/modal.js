@@ -5,10 +5,12 @@ const main = document.querySelector("main");
 export function displayModal(modal) {
     main.setAttribute('aria-hidden', 'true');
     modal.setAttribute('aria-hidden', 'false');
-    const btn_close = modal.querySelector(".modal-close-btn");
-    btn_close.focus();
 	modal.style.display = "block";
     document.querySelector('body').classList.add('no-scroll');
+
+    //Change le focus sur la fermeture de la modale
+    const btn_close = modal.querySelector(".modal-close-btn");
+    window.setTimeout(()=> btn_close.focus(),0); 
     
     //Ferme la modale quand on presse "Echap"
     document.addEventListener("keydown",e => {

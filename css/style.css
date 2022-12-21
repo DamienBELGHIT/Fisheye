@@ -72,3 +72,8 @@ h1 {
 .tagline{
     font-weight: bold;
 }
+
+.btn:hover, .btn:focus{
+    background-color: #D3573C;
+    color: black;
+}

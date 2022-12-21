@@ -15,7 +15,7 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button">Contactez-moi</button>
+        <button class="btn contact_button">Contactez-moi</button>
       </div>
       <div class="dropdown-sort">
         <label for="sort">Trier par</label>
@@ -27,11 +27,11 @@
       </div>  
       <ul class="medias_section"></ul>
     </main>
-      <div id="lightbox_modal" aria-hidden="true">
+      <div id="lightbox_modal" aria-hidden="true" aria-modal="true">
         <div class="gray-bg"></div>
         <div class="modal" role="dialog" aria-describedby="modal-title">
           <header>
-            <img class="modal-close-btn" alt="Fermer la modale" src="assets/icons/close.svg" role="button" aria-label="Fermer la modale"/>
+            <img class="modal-close-btn" alt="Fermer la modale" src="assets/icons/close.svg" role="button" aria-label="Fermer la modale" tabindex="0"/>
           </header>
           <div class="content">
             <div aria-label="Media précédent" class="arrow-btn" id="previousContent-btn"><i class="fa-solid fa-angle-left"></i></div>
@@ -40,12 +40,12 @@
           </div>
         </div>
       </div>
-      <div id="contact_modal" aria-hidden="true">
+      <div id="contact_modal" aria-hidden="true" aria-modal="true">
         <div class="gray-bg"></div>
         <div class="modal" role="dialog" aria-describedby="modal-title">
           <header>
             <h2 class="modal-title">Contactez-moi</h2>
-            <img class="modal-close-btn" alt="Fermer la modale" src="assets/icons/close.svg" role="button" aria-label="Fermer la modale"/>
+            <img class="modal-close-btn" alt="Fermer la modale" src="assets/icons/close.svg" role="button" aria-label="Fermer la modale" tabindex="0"/>
           </header>
           <form>
             <div class="formData">
@@ -64,7 +64,7 @@
               <label for="message">*Votre message</label>
               <textarea id="message" name="message" required></textarea>
             </div>
-            <button class="contact_button" aria-label="Envoyer le message">Envoyer</button>
+            <button class="contact_button btn" aria-label="Envoyer le message">Envoyer</button>
           </form>
         </div>
       </div>

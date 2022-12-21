@@ -33,9 +33,11 @@ function checkInput(input){
     const div = input.parentElement;
     if(input.validity.valid){
       div.setAttribute("data-error-visible", false);
+      div.setAttribute("aria-invalid", false);
       return true;
     }else{
       div.setAttribute("data-error-visible", true);
+      div.setAttribute("aria-invalid", true);
       return false;
     }
   }

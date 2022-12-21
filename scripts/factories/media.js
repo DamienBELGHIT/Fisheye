@@ -27,7 +27,10 @@ export function mediaFactory(data) {
             div_content.setAttribute("preload", "metadata");
         }
         div_content.classList.add("content");
+        div_content.setAttribute("tabindex",0);
+        //Events d'ouverture de la lightbox
         div_content.addEventListener("click", ()=>openLightbox(container));
+        div_content.addEventListener("keydown",e => {if (e.key === "Enter") {openLightbox(container)}});
   
       //titre
       const div_title = document.createElement('h2');
@@ -40,8 +43,9 @@ export function mediaFactory(data) {
       div_like.classList.add("btn-like");
       div_like.setAttribute("aria-label", "Ajouter un like au media");
       div_like.textContent = likes;
-      //Event de like du media
-      div_like.addEventListener("click", ()=>{
+      div_like.setAttribute("tabindex",0);
+
+      function togglelike(){
         const liked = div_like.toggleAttribute("liked");
         let likes = div_like.textContent;
         if(liked){
@@ -54,7 +58,11 @@ export function mediaFactory(data) {
           addLikeTotal(-1);
         }
         div_like.childNodes[0].textContent = likes;
-      });
+      }
+      //Events de like du media
+      div_like.addEventListener("click", ()=>togglelike());
+      div_like.addEventListener("keydown",e => {if (e.key === "Enter") {togglelike()}});
+
       div_like.appendChild(heart_icon);
   
       //assemblage
