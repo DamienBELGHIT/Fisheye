@@ -15,7 +15,7 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="btn contact_button">Contactez-moi</button>
+        <button class="btn contact_button" aria-label="Contact Me">Contactez-moi</button>
       </div>
       <div class="dropdown-sort">
         <label for="sort">Trier par</label>
@@ -31,21 +31,21 @@
         <div class="gray-bg"></div>
         <div class="modal" role="dialog" aria-describedby="modal-title">
           <header>
-            <img class="modal-close-btn" alt="Fermer la modale" src="assets/icons/close.svg" role="button" aria-label="Fermer la modale" tabindex="0"/>
+            <img class="modal-close-btn" alt="Fermer la modale" src="assets/icons/close.svg" role="button" aria-label="Close dialog" tabindex="0"/>
           </header>
           <div class="content">
-            <div aria-label="Media précédent" class="arrow-btn" id="previousContent-btn"><i class="fa-solid fa-angle-left"></i></div>
+            <div aria-label="Previous image" class="arrow-btn" id="previousContent-btn" tabindex="0"><i class="fa-solid fa-angle-left"></i></div>
             <div class="zoomed-content"></div>
-            <div aria-label="Media suivant" class="arrow-btn" id="nextContent-btn"><i class="fa-solid fa-angle-right"></i></div>
+            <div aria-label="Next image" class="arrow-btn" id="nextContent-btn" tabindex="0"><i class="fa-solid fa-angle-right"></i></div>
           </div>
         </div>
       </div>
-      <div id="contact_modal" aria-hidden="true" aria-modal="true">
+      <div id="contact_modal" aria-hidden="true" aria-modal="true" aria-label="image closeup view">
         <div class="gray-bg"></div>
         <div class="modal" role="dialog" aria-describedby="modal-title">
           <header>
             <h2 class="modal-title">Contactez-moi</h2>
-            <img class="modal-close-btn" alt="Fermer la modale" src="assets/icons/close.svg" role="button" aria-label="Fermer la modale" tabindex="0"/>
+            <img class="modal-close-btn" alt="Fermer la modale" src="assets/icons/close.svg" role="button" aria-label="Close dialog" tabindex="0"/>
           </header>
           <form>
             <div class="formData">

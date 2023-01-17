@@ -11,6 +11,7 @@ btn_openContactModal.addEventListener("click", ()=>displayModal(contactModal));
 
 //Events de fermeture de la modale
 btn_closeContactModal.addEventListener("click", ()=>closeModal(contactModal));
+btn_closeContactModal.addEventListener("keydown",e => {if (e.key === "Enter"){closeModal(contactModal)}});
 
 //Envoie les infos du formulaire si tous les champs sont valides
 submitForm.addEventListener("click", (event)=>{
@@ -24,7 +25,7 @@ submitForm.addEventListener("click", (event)=>{
     });
     if(valid){
         console.log("Envoi : "+res);
-        closeModal();
+        closeModal(contactModal);
     }
 });
 

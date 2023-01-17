@@ -41,7 +41,7 @@ export function mediaFactory(data) {
       const heart_icon = document.createElement('i');
       heart_icon.classList.add("fa-solid", "fa-heart");
       div_like.classList.add("btn-like");
-      div_like.setAttribute("aria-label", "Ajouter un like au media");
+      div_like.setAttribute("aria-label", "Add like to media");
       div_like.textContent = likes;
       div_like.setAttribute("tabindex",0);
 
@@ -50,11 +50,11 @@ export function mediaFactory(data) {
         let likes = div_like.textContent;
         if(liked){
           likes++;
-          div_like.setAttribute("aria-label", "Retirer le like du media");
+          div_like.setAttribute("aria-label", "Remove like from media");
           addLikeTotal(1);
         }else{
           likes--;
-          div_like.setAttribute("aria-label", "Ajouter un like au media");
+          div_like.setAttribute("aria-label", "Add like to media");
           addLikeTotal(-1);
         }
         div_like.childNodes[0].textContent = likes;

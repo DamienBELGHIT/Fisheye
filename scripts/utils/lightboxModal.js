@@ -10,6 +10,7 @@ let currentMedia;
 
 //Events de fermeture de la modale
 btn_closeLightBoxModal.addEventListener("click", ()=>closeModal(lightBoxModal));
+btn_closeLightBoxModal.addEventListener("keydown",e => {if (e.key === "Enter"){closeModal(lightBoxModal)}});
 
 //Ouverture de la modale
 export function openLightbox(media){
@@ -36,7 +37,7 @@ function setLightboxContent(media){
 const nextMedia = (media)=>media.nextSibling && setLightboxContent(media.nextSibling);
 
 btn_next.addEventListener("click", ()=>nextMedia(currentMedia));
-
+btn_next.addEventListener("keydown",e => {if (e.key === "Enter") {nextMedia(currentMedia)}});
 document.addEventListener("keydown",e => {
     if (lightBoxModal.getAttribute('aria-hidden') == 'false' && e.key === "ArrowRight") {
         nextMedia(currentMedia);
@@ -47,7 +48,7 @@ document.addEventListener("keydown",e => {
 const previousMedia = (media)=>media.previousSibling && setLightboxContent(media.previousSibling);
 
 btn_previous.addEventListener("click", ()=>previousMedia(currentMedia));
-
+btn_previous.addEventListener("keydown",e => {if (e.key === "Enter") {previousMedia(currentMedia)}});
 document.addEventListener("keydown",e => {
     if (lightBoxModal.getAttribute('aria-hidden') == 'false' && e.key === "ArrowLeft") {
         previousMedia(currentMedia);
