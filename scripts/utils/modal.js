@@ -1,7 +1,8 @@
 //Récupère les éléments du DOM
 const main = document.querySelector("main");
+const focusoutDiv = document.querySelector("header a");
 
-//Events qui empêche le focus en dehors des modales
+//Events qui empêchent le focus en dehors des modales
 document.querySelectorAll(".modal").forEach((modal)=>{
     modal.addEventListener("focusout", (ev)=>{
         if (ev.relatedTarget && !modal.contains(ev.relatedTarget)) {
@@ -10,7 +11,7 @@ document.querySelectorAll(".modal").forEach((modal)=>{
     })
 })
 
-//Events qui ferment les modales quand on appuie sur Echap
+//Event qui ferme les modales quand on appuie sur Echap
 document.addEventListener("keydown", (ev)=>{
     const modal = document.querySelector(".opened-modal");
     if(modal){
@@ -40,4 +41,5 @@ export function closeModal(modal) {
     modal.setAttribute('aria-hidden', 'true');
     modal.style.display = "none";
     document.querySelector('body').classList.remove('no-scroll');
+    focusoutDiv.focus()
 }

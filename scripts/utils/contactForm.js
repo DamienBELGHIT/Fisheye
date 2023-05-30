@@ -19,7 +19,7 @@ submitForm.addEventListener("click", (event)=>{
     let valid = true;
     let res = "";
     formData.forEach(function(div){ 
-        let input = div.querySelector("input") ? div.querySelector("input") : div.querySelector("textarea");
+        let input = div.querySelector("input") || div.querySelector("textarea");
         !checkInput(input) && (valid=false);
         res += "|" + input.value; 
     });

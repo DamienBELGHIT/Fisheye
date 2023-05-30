@@ -5,7 +5,7 @@ import { openLightbox } from "../utils/lightboxModal.js";
 export function mediaFactory(data) {
     const { title, image, video, likes} = data;
   
-    const content = image ? `assets/photos/${photographName.split(' ').join('_')}/${image}` : `assets/photos/${photographName.split(' ').join('_')}/${video}`;
+    const content =  `assets/photos/${photographName.split(' ').join('_')}/${image || video}`;
   
     function getMediaDOM() {
       const container = document.createElement('li');
@@ -13,21 +13,21 @@ export function mediaFactory(data) {
       container.classList.add("media");        
       
       //contenu
-      let div_content ="";
+      let div_content;
         if(image){
             div_content = document.createElement('img');
             div_content.setAttribute("src", content);
-            div_content.setAttribute("alt", title);
         }
         else if(video){
             div_content = document.createElement('video');
             div_content.setAttribute("src", content+"#t=0.5"); 
             div_content.setAttribute("type", "video/"+content.split('.').pop());
-            div_content.setAttribute("alt", title);
             div_content.setAttribute("preload", "metadata");
         }
+        div_content.setAttribute("alt", title);
         div_content.classList.add("content");
         div_content.setAttribute("tabindex",0);
+        
         //Events d'ouverture de la lightbox
         div_content.addEventListener("click", ()=>openLightbox(container));
         div_content.addEventListener("keydown",e => {if (e.key === "Enter") {openLightbox(container)}});
